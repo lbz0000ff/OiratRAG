@@ -1,0 +1,511 @@
+### Contents
+
+- 1Expansion Features
+- 2Free Features
+- 3Gamebalance
+- 4AI
+- 5Interface
+- 6Usermodding6.1Effects6.2Modifiers6.3Triggers6.4Defines6.5Others
+- 6.1Effects
+- 6.2Modifiers
+- 6.3Triggers
+- 6.4Defines
+- 6.5Others
+- 7Script
+- 8Bugfixes
+- 9References
+Patch 1.31, aka "Majapahit", was released on 2021-04-27[1]with the checksum0fb9. The patch was released alongside theLeviathan expansion.
+
+### Expansion Features
+
+- Monuments are now spread around the world giving a variety of modifiers to their owners.
+- Monuments can be upgraded giving greater bonuses.
+- Some Monuments can be relocated to your capital.
+- Added several Events related to Monuments.
+- 48 unique monument illustrations.
+- You can now curry favors with another country.
+- You can now trade accumulated favors for ducats, soldiers and sailors.
+- You can now trade favors to ask someone to break an alliance.
+- You can now trade favors to put a relative on the throne of another country.
+- You can now trade favors to request the return of a core province.
+- You can now trade favors to reduce the opinion towards another country.
+- Colonial nations have three different types which gives them different behavior.
+- Colonial nations have upgrades giving various bonuses.
+- You can concentrate development of your or your vassal states transfering the development to your capital.
+- You can centralize a state to reduce its governing cost.
+- Totemism has a new mechanic where previous rulers can be selected as ancestors and give you modifiers based on traits.
+- Added several Events for Totemism.
+- You can now designate units to automatically carpet siege selected areas.
+- New Mandala government reform for some nations which encourages gameplay with vassals.
+- You can now specify to never mothball certain forts.
+- New Pillage Capital wargoal to steal development from your enemies.
+- Draft transports mechanic to quickly build a transportation navy.
+- Regency councils are now led by estates.
+- You can now choose to extend a regency to delay when your heir ascends to the throne.
+- Brunei, Champa, Cherokee, Dakota, Iroquois, Lan Xang, Khmer, Madyas, Majapahit, Navajo, Palembang, Pegu, Powhatan, Pueblo, Siamese, Shan states, Sunda, Tondo and Vietnamese missions.
+- Full sets of unit models for Brunei, Majapahit, Malacca, Pagaruyung, Ayutthaya, Champa, Lan Na, Luang Prabang
+- Generic unit model for Polynesian countries.
+- Generic unit model for Australian Aboriginal countries.
+- War canoe model for Native Americans.
+- War canoe model for Polynesians.
+- 2 New Disasters (Khmer and Vietnam).
+- You can expand the infrastructure of a province to increase the amount of manufacturers, at the cost of governing capacity.
+- 9 New Achievements.
+- Added Leviathan achievements Icons.
+### Free Features
+
+- Added 7 new events about special regent characters.
+- Added an event chain of 4 flavour events for the Iroquoian Nations, regarding ‘The Morning Wars’
+- Added 5 new flavor events for the Pueblo tribes.
+- Added 5 new flavor events for the Cherokee tribe (CHE).
+- Added Sikh Gurus mechanic.
+- Added new alert types.
+- Heir legitimacy has been reworked.
+- Added new alert icons.
+- Added new subject icons.
+- Added new government reform icons.
+- New Zoroastrian holy sites.[2]
+- Added reforms for each colonial subtype.
+- New idea groups for theocracies, steppe hordes, natives.
+- New migration mechanics for natives.
+- Migration speed was removed and migration cost was added.
+- Alert for when a migratory tribe's province devastation gets high and they can migrate.
+- Added Aotearoa (Maori NZ), United Hawaii and United Fiji as new TAGs.
+- Added custom names for both Nobility and Clergy for Polynesia.
+- Added new 45 Aboriginal & Polynesian flags.
+- Added new 98 provinces in North America, including historical Lakes Tulare and Cahuilla.
+- New Aboriginal tech group.
+- New Aboriginal and Polynesian ideas.
+- Added generic missions for North American Natives and Polynesian Countries.
+- Added 43 Events for Polynesian TAGs with new Event Pictures.
+- Added several Generic Events for Native Americans.
+- New Parsi culture.
+- New mechanic for tribal development.
+- New mechanics for federations.
+- New government reforms for tribal nations.
+- New Plutocracy government reform.
+- New Kongsi federation government reform.
+- Added flavor text and changed some names for the new policies (Theocracy, Horde, Indigenous).
+- Added Clove as a trade good.
+- Added Japanese volunteer mercenaries.
+- Added several Events for Federations.
+- Added one Volcano event
+- Added difference between the graphics for cobelligerent with allies and cobelligerent without allies in the Declare War interface.
+- Added several Catalan culture names to Europe.
+### Gamebalance
+
+- Now supporting rebels in a rival country does not give any power projection.
+- Now heir claim grade is increased faster.
+- Ruler/heir legitimacy tweaked, so only kids get reduced claim strength.
+- Made regencies have a minimum 80% legitimacy, so that they are always useful enough until heirs are ready to take over.
+- Upgrading Trade Centers requires 15 development for rank 2, and 30 development for rank 3.
+- Canals now provide far more trade power.
+- The Swiss Guard is now up to 4 times as large.
+- Increased priority and max for savings, decreased massively for subsidies.
+- Reduced importance of colonists if we have loans.
+- Reduced importance of subsidies if we have loans.
+- Reduced missionary importance if we have loans.
+- Reduced advisor importance if we have loans.
+- Made saving take into account all loans, not just bank loans.
+- Marines now only take +10% shock damage instead of +25%.
+- Naval Ideas Finisher is now +10% Marines instead of +5%.
+- Each coastal development now gives 40 sailors instead of 30.
+- Maratha & Noble Levies are now -10% Tax instead of -25% tax, and +25% Manpower instead of +100% Manpower.
+- Estates now have -25 loyalty for each nation you ally with that you have a victory card on.
+- Horde can no longer get Aristocratic ideas.
+- Admirals & Explorers now use diplomatic power for a separate maintenance pool.
+- Coastal Sea now reduces naval engagement width by 20% instead of increasing it by 10%.
+- Naval Engagement Width now increases with tech, so you go from 5 to 75 over time.
+- The amount of sailors ships need now increases as they become more advanced.
+- Small factor to split sail_speed into blockade power and sail speed.
+- Sailor consistency balance. Reduced number of sailors needed for Archipelago Frigate, Chebeck, Galiot, Galleass, Galley and War Galley.
+- The movement speed of ships now increases with more advanced models. Galleys up to 25% at the best model, while the other ship-types reach +50%.
+- Coastal Defence and Naval Batteries now block slave raids.
+- Reduced the appoint_cardinal_cost modifier that made possible to appoint cardinals for 0 ducats.
+- Now you can release nations in the HRE Casus Bellis.
+- The window to take ideas/tech for innovativeness has now been increased to 365 days from 90 days.
+- Passive gain from being ahead of time will now give you 0.01 innovativeness instead of 0.005.
+- Innovativeness gain from taking Idea first/early is now 2 instead of 1.
+- Innovativeness gain from taking Tech first/early is now 4 instead of 2.
+- Severely lowered reformation desire gain.
+- Regency Council no longer decreases Legitimacy, but instead increases Stability Cost.
+- Now there is a penalty for setting as Co-belligerent a nation you have a Royal Marriage with.
+- Now Veche Republics can use the Merchant Republic reforms in the third tier.
+- Make it easier to find the Province with revolt risk in Stability and Expansion tab.
+- Released nations keep several values from the moment they were annexed.
+- Added some straits between islands.
+- Now subjects will join the war but only will support it if they, and the overlords, don’t have liberty desire towards the top overlord.
+- Christian countries can join HRE by simply bordering it.
+- Overlord being forced to become tributary during war forces him but not the vassals out of other ongoing wars.
+- Primitives can now build transports. Also added an early transport ship called "war canoe" for before tech 3.
+- The 'Restrict Imperial Courts' parliament bribe now costs 1 IA instead of 5.
+- Non-European countries are now more willing to charter out Trade Companies in Europe.
+### AI
+
+- AI budgeting has been improved.
+- Made AI better at gauging when to build Coastal Defence building.
+- AI for Centralize State.
+- Improved on AI managing Governing Capacity.
+- Changed AI weights to the uparaja_reform.
+- AI usage of Monuments.
+- Fixed AI may force enemy to become player's tributary in a peace treaty.
+- AI Check for AE with Pillage Capital peace treaty.
+- AI does not Establish Order while saving Monarch Power to research technologies.
+- AI can be dissuaded from attacking or checks for changed circumstances.
+### Interface
+
+- Added the Paradox Tinto logo.
+- Loading screen featuring Hayam Wuruk in front of Borobudur Temple.
+- Illustrations for Zoroastrian holy sites.
+- Additional event illustrations for Polynesia.
+- Additional event illustrations for South East Asia.
+- Various additional icons.
+- New “Mothball all forts” button.
+- New disaster icons.
+- Fixed Building tab and images in the macrobuilder GUI.
+- Take on debt tooltip now displays value including interest when you lack the money.
+- Transfer Occupation now sorts country by state development.
+- Added scrollbar for estate privileges and removed the estate limit.
+- Updating a Center of Trade now updates modifier immediately.
+- Improved trade-power value tooltip in province view.
+- Income and expenses now enum classes.
+- Added income and expenditure logging.
+- Fixed the active forts icon in the military screen doesn't have a tooltip and is not aligned with the buttons or the text below.
+- Added a message for when another nation gets a cardinal, Appoint Cardinal interaction has been used and when Papal States appoint a loyalist.
+- Increased the warning for Agenda expiry to 3 years from 1 year.
+- The Emperor is correctly shown as joining the war on the defending side.
+- Added new select all/deselect all buttons to message settings.
+- Fixed tooltips for force limits when you have under 5 provinces.
+- Made the syncretic faith window close if your religion changes.
+- UI alert informs the player if they meet the requirements to become a Hegemon.
+- Only provinces can be selected on map in peace deal view.
+- Fixed issues with popup for Call to Arms as Defender of the Faith.
+- Fixed Interface issue with recruiting cannons in subject territories.
+- Show Governing Capacity in State View.
+### Usermodding
+
+#### Effects
+
+- Added add_great_project_tier to define the tier of a monument present in a province.
+- Added free_concentrate_development = yes to allow Government Reforms to have this feature at no cost.
+- Added extend_regency effect to set by how many years a regency will be extended.
+- Added regency = { estate = xxxx } to set a estate as lead in a regency.
+- Added set_estate_led_regency_privilege to define a privilege that will be added to a country. “random” is an option for a Random privilege chosen among the possible ones.
+#### Modifiers
+
+- Added great_project_upgrade_cost.
+- Added local_great_project_upgrade_cost.
+- Added monthly_heir_claim_increase_modifier (multiplicative).
+#### Triggers
+
+- Added has_great_project { type = X }.
+- Added num_of_times_used_transfer_development.
+- Added num_of_times_used_pillage_capital.
+- Added has_pillaged_capital_against.
+- Added is_in_extended_regency = yes.
+- Added has_estate_led_regency.
+- Added estate_led_regency_influence.
+- Added estate_led_regency_loyalty.
+- Added is_subject_of_type_with_overlord.
+#### Defines
+
+- Added Number of Possible Federation Countries.
+- Added Ancestor Personality Level in Defines.
+- Added Ancestor Cost.
+- Added Great Project Warscore Cost.
+- Added Extended Regency Legitimacy Penalty.
+- Added Default Extended Regency Years.
+- Added Several Defines for Great Projects.
+- Added Sikh Guru Chance.
+- Added various Defines for Concentrate Development.
+#### Others
+
+- Added on_pillaged_capital.
+- Added on_transfer_development.
+- Added on_extend_regency.
+- Added on_estate_led_regency.
+- Added on_estate_led_regency_surpassed.
+- Added on_colonial_type_change.
+### Script
+
+- Added texture converter script.
+- Added the option to have royal marriages and queens as requested by the reporter.
+- Fixed federation cohesion bar isn't visible when you join a federation until you close and reopen the federation view.
+- Added Catholic privilege for churches.
+- Added Catholic Sanctuaries estate privilege.
+- Added map mode, tooltips, fixed validation and province selection, fixed being able to siege sea provinces, added stop unit mission so we can cancel missions without needing to know what they are.
+- Added 5 new events about the construction of monuments.
+- Added a context string to evaluation of mission fulfillment.
+### Bugfixes
+
+- Papal states no longer becomes a daimyo when vassalized.
+- Fixed crash when loading a non-existent province.
+- Fixed text fields for server ID and password in multiplayer menu.
+- Fixed an issue where you couldn't build units past 80% of your force limit.
+- Fixed issues with “The Freedom of Geneva” event.
+- Fixed crash opening 35th page of ledger.
+- Fixed issue with the event option "Integrate Burgundy into the Empire" in "Burgundy Inherited" does not release Burgundy with the Emperor's dynasty.
+- Fixed an issue in RNW not showing trade nodes.
+- Can no longer use special characters in naval template names.
+- Fixed freeze after choosing Trade Goods Mapmode when any province is selected.
+- Trade Company Investment Alert now opens Macro Builder on Trade Company Investments Tab.
+- Now Inland trade tooltip explains it takes a third of development as a base.
+- Now Nations have military access to tributary's overlord if overlord does not join tributary in war.
+- Now Military Access is not cancelled when player's tributary overlord declares war on that country or makes it tributary.
+- Fixed Peace diplomatic cost shown wrongly if player uses both force vassalization and province takeover.
+- Fixed vassal use of Trade Companies.
+- Now Tributary states with vassals can give land to their vassals in peace deal.
+- Now Fort retaking province cannot be prevented by switching occupation to a vassal.
+- Now create Vassal overlay does not remain when you close the main tab.
+- Now you can’t downgrade vassals CoTs.
+- Now Land Force Limit bonus from vassals doesn’t boosts yearly Army Professionalism gain from Unit Drilling.
+- Fixed when declaring war against a subject, Call to Arms to overlord's allies was sent from the subject instead of the overlord.
+- Fixed crash when player tries to open Show Diplomatic Feedback tab.
+- Fixed crash when getting cost for upgrading a max level center of trade.
+- Fixed crash with totemist mechanic if ruler has a personality.
+- Fixed crash when having an ancestor with no personality.
+- Fixed various missions in all areas.
+- Improved feedback for autonomous carpet siege.
+- Fixed Navarre missions with RNW.
+- Fixed different issues with pillaging capital.
+- Fixed different issues with extend diplomacy.
+- Removed nationalism for primitives vs non-primitives.
+- Added explanation for favor rewards.
+- Fixed overlap of some buttons on diplomacy options.
+- Fixed various out of sync errors in multiplayer mode.
+- Fixed “aligned “Allow players to play the same country”.
+- Fixed loc on reduce opinion.
+- Fixed the option "Rich Presence" that was written in English in FR/DE/ES versions, being replaced in DE/ES versions in Main Menu.
+- Fixed ”Go to” button that has capital letters in German language for the “The Treaty of Tordesillas”.
+- Old GUI reubication fixes.
+- Fixed unlocalized text in the in-game DLC overview in the German version.
+- Fixed description crash in ledger.
+- Fixed crash in Court and Country Events.
+- Fixed loc string for reform name.
+- Fixed cores on uncolonized provinces give Uncontested Cores prestige debuff.
+- Fixed Compile fix, the header is hidden outside the matchmaking module. Also use the matchmaking interface provided.
+- Fixed declare war view sometimes disallowing selection of an ally when the tooltip says they'll accept.
+- Added suggested french loc fixes.
+- Fixed flavor_pue.5 is now triggered only.
+- Compile fix, missing forward declaration.
+- Fix on IsAddressMatchingBackend. Sometimes joining on Steam lobby when game was running Nakama wasn't showing any error.
+- Cppcheck fixes.
+- Fixed “Ruler had no personalities”, so was crashing at GetHeadData().
+- Fixed Event converting nation that conquered Mandate of Heaven will not Harmonize old country religion.
+- Fixed crash after exiting to the menu RaiseException.
+- Fixed province with wrong culture and added missing history files. The wastelands are now known to the NA natives.
+- Fixed “goto to the event” which properly goes to the event's province.
+- Fixed explain how it's calculated the quantity of a reward gived by a favor.
+- Fixed wrong pathing in north american east coast territory.
+- Fixed overlap of tab buttons on diplo options.
+- FIxed tooltip on "Settle" button not having line breaks.
+- Fixed Cannot change culture of a syncretic faith province, but cannot convert it either (to allow changing culture).
+- Fixed Fort values are shown for provinces with no fort in the province panel.
+- Fixed in the leave federation view there is an edit text box where you can remove the name of the federation.
+- Fixed human players is listed in the outliner in singleplayer games.
+- Fixed not able to change State into Territory due to converting province despite having finished Religious Ideas.
+- Fixed a bug that caused the "global_religious_conversion_resistancer" to make it more likely to be target of religious conversion center instead of less.
+- Fixed the reward of the mission so it gives either stability or admin power.
+- Removed condition in expand administration.
+- Added industralization institution where needed.
+- Added visibility to the area around Muisca for Andean TAGs so that they can fight freely.
+- Added a missing description for the bought_indulgence modifier.
+- Fixed whenever player changes government through an event they get all reform progress back.
+- Fixed "That is mine" is awarded for Custom Nation starting on normally uncolonised province.
+- Fixed condottieri morale damage depends on maintenance slider of country giving condottieri.
+- Fixed a nation falling under a Personal Union does not leave a coalition they are part of.
+- Fixed Propagate Religion CoRs can spawn in non-muslim province and not be able to convert it.
+- Fixed claims coalition enemy will be co-belligerent in war while he won't.
+- Fixed declaring war with the Tribal Border Feud CB and attempting to select them as vassal shows "Cannot be selected when using the 'force migration' casus belli, which is not what's being used here.
+- Fixed the "Move to" peace offer is visible even if there's nowhere to move, but the text just says move to which looks broken.
+- Fixed current wars ledger page - the war score text widget overlaps loads of the shields
+- Fixed a number of macro bugs preventing triggers and effects working.
+- Fixed moving Main Trade City to a node where merchant is transferring trade power does not change the merchant's behavior.
+- Fixed estimated arrival date does not match real one when moving army.
+- Fixed nation gets "Joined League War" modifier for joining any war against Religious League leader.
+- Fixed assert when changing a merchant from transferring to collecting on moving the primary trade node.
+- Fixed colonies completed with a colonist don't convert to owner's religion.
+- Fixed missing persistence for CWar.
+- Fixed no monarch/leader/ship names for federations.
+- Fixed AE distance calculation from being step-based to being linear.
+- Fixed the target of a succession war can in rare circumstances become warleader, which prevents the war being ended.
+- Fixed maximum monarch power cap is lowered if it is higher than 999 and player starts golden era.
+- Fixed the problem moving the hidden effects of the option to the immediate section so it fires even if the player does not do anything, avoiding any other automatic response that could break the feature.
+- Fixed In regencies in the target country, Claim Throne checks the dynasty of the heir instead of the regent.
+- Fixed a bug where universities could not be built if a province had lost slots already.
+- Fixed minor bug penalising Heathens for being Heretics.
+- Fixed concede colonial nation does not work properly if player has a colonial nation outside the target region causing massive overextension.
+- Fixed player can be at war with his own ally without breaking alliance.
+- Fixed Consolidate Development button in state panel should have a text saying what it does similar to the Centralize State one next to it.
+- Fixed reduce opinion diplomatic action doesn't specify how much opinion they would lose.
+- Fixed potential crash generating a regency with no estates.
+- Fixed missing option names.
+- Fixed a bunch of effect GetDesc stack overflows.
+- Fixed armies ignore forts if the path has been set before the war declaration.
+- Fixed tooltip for extended regency trigger.
+- Fixed the estimated time until next reform fluctuates on monthly tick in the tooltip for government reform progressbar.
+- Fixed tributary Overlord gives conditional access to enemies but not its tributaries in war.
+- Fixed Fort position changes on camera move.
+- Fixed subjects with supportive focus may become passive.
+- Fixed custom Nations with a culture from the New World can see the build a Flagships button in province builder.
+- Fixed "Placate estate" parliament bribes always use generic estate names.
+- Removed message about Independence War of a country player supported independence of shows rebellious vassal as ally of the overlord.
+- Fixed garrison bonuses applied when enemy sieges Player's forts.
+- Fixed duplicated keys.
+- Fixed error log spamming in observer mode.
+- Added various clauses that check if FRA is subject.
+- Fixed an error which causes blockade progress to be miscalculated when you have less than required ships to blockade.
+- You can no longer raid coasts where you have a truce with the owner.
+- Sich Rada now allows you to raze provinces if you have The Cossacks DLC.
+- Hegemon opinion is only applied to non-subjects.
+- AI will now get back manpower when they disband units.
+- Tooltip Modifier from "Siege Specialist" general trait was not displayed in Fort defense tooltip in siege view.
+- Fix on Reconquista Tutorial for not having enough admin power to end it.
+- User is kicked out from the subjects tab once the user no longer plays as the overlord.
+- Overlord developing subject's provinces grants crown land to the overlord instead of the subject.
+- Fixed CTD when user selects ruler random personality when creating custom nation.
+- Fixed script error in Event flavor_swi.7 (Calvin becomes the Spiritual Leader of Geneva).
+- Fixed script error in Tunisian Missions. The same error could be found in the previous mission of the tree. Corrected both.
+- Fixed script error in Spanish Missions. The same error could be found in the previous mission of the tree. Corrected both.
+- Added the Quelimane area as possible to fulfill the requirements as is part of the referred Trade Node and is historically related to the provinces affected by this mission.
+- Fixed script error in Emperor of the Revolution Reform. Considering the modifier that the reform gives, the easiest change is to simply make it available only when the player owns the Emperor DLC.
+- Fixed script error in Fate of Neumark and Treaty of Colln events by adding a remove_core = TEU in both cases so that Teutons lost their cores in the provinces they are selling.
+- Fixed script error in the event aow_events.48 that allowed the event to try to give a cardinal to a non=catholic province. While the result was that the province if it was non-catholic wouldn't receive the cardinal, it is a better design to only allow catholic provinces to be eligible.
+- Fixed script error in Event 1081 that did not check that the Papal States did not actually exist. The event won't affect Italy, though.
+- Updated hindu_events.1 to have Buddha as a possible option.
+- Fixed script error in flavor_bur.16 where it is not checked that NED is not a subject so the rest of the dutch minors won't join and cause a massive spike in Liberty Desire.
+- Fixed script error in Event flavor_hab.3195 where a peasant austrian cultured revolt (by flavour text( can happen anywhere. The event now checks you own at least one province in the proper region and of the proper culture and fires in one of those provinces.
+- Fixed script error in Event flavor_swi.201. The event that fires this (200) won't fire if Geneva is at war so that the odd result does not happen (forcing Geneva out of all current wars as it is made a march).
+- Reduced the Kingdom of God and Embrace Conciliarism modifiers for appointing cardinals so they don't stack to 100%.
+- Event "Mary Dies" will no longer start if the country is at war.
+- Fixed icon and text positions for the two resolution configurations. Governing cost overlaps with the number of building slots in native buildings view.
+- Hided standard view icons for native american window and vice versa.
+- Fixed American Provinces not being in their proper Trade Node.
+- Fixed bug where a province with "no_religion" can’t be converted to any religion.
+- Fixed when recruiting special regiments become regular infantry after saving and loading the save.
+- Fixed war leader's subjects weren't called into defensive wars.
+- Fixed inaccurate tooltip for score multiplier from Hegemony.
+- Fixed huge nations in CK2 converted save games start with their capital in a territory.
+- No longer colonial regions can be added into HRE.
+- Propagate Religion now policy can only be used if you're muslim or if you are hindu and have completed the mission "The Porch of Mecca".
+- Fixed tooltip for religious conversion in province view of provinces with harmonized religion wasn’t checking whether you could convert the province or not.
+- Fixed tutorial when you are playing the unit control basic, a window will no longer appear and suddenly disappear when clicking on a non-player army.
+- Fixed misleading tooltip for when conquering land would increase land share.
+- Fixed the tooltip of the "Excommunicate" diplomatic action indicating the chosen country has too much Papal Influence when this action is on cooldown.
+- Fixed the Defender of Faith Tier tooltip for non-Christian and non-Muslim countries no longer reads as if they can adopt Dotf.
+- Fixed tooltip for Naval Force Limit Modifier no longer displays a penalty for local Autonomy after assigning it to the Trade Company.
+- Fixed the really annoying "adding cash to warscore doesn't let you add the full amount when nearing max warscore" bug.
+- Fixed lowering Maintenance to keep the enemy in battle for longer by storing the morale for the country at the start of the particular battle so any changes don't affect the units involved until that particular battle is over.
+- Fix for the cash benefit for creating states always being listed as 0.
+- Fixed switching map modes with States tab opened followed by opening Trade Company Investments causes colours and names mismatch on map.
+- Fixed bug where attached unit could be one day off.
+- The option to create an Alliance again after allying a nation and reloading with an active Call to Arms from that nation was blocked. The last diplo action date and country was not persisted in the save, fixed that.
+- Tooltip for effects changing government rank no longer displays current rank if the nation's rank is locked.
+- Fixed clicking on a province with Gold when building a regular manufactory through macrobuilder builded Ramparts.
+- Hunt for Seven Cities can switch off with no notification to the player even if there are provinces left to be explored. Fixed this.
+- Fixed the game claiming that your movement is blocked by a hostile fort when trying to retreat from a battle before 12 days have passed.
+- Fixed AI refusing to spend overflow monarch points on development in some cases.
+- Fixed that when the player accepted Demands for Separatists from an event the nation didn't get released and the separatist army became part of the player’s one.
+- Fixed ordering transport ships with army on board to travel through few ports will leave army only in last port.
+- Fixed countries in America that are missing their primitive flag without Conquest of Paradise/El Dorado.
+- Changed misleading tooltips.
+- Fixed bug in the Trade tutorial that required Venice to build 5 ships with only 65 ducats. Changed it to 3 instead.
+- Native province view fixes.
+- Forcing harboured fleet to return to occupied province will prevent them from leaving said province.
+- Fixed Imperial Authority tooltip containing outdated information on how Imperial Authority is gained and lost.
+- Fixed how to know HRE Electors stance on a reform.
+- Fixed Reloading game causes recruiting special regiments to change into regular infantry
+- Fixed attempting to attach an army to other already attached army has no effect.
+- Fixed Revolutionary OPMs can become Free Cities.
+- Fixed Hegemon tooltip read Another Great Power inseat of All other Great Power.
+- Fixed text may overflow when selling ships to a country with a long name.
+- Separated both budgeting logs.
+- Enhanced algorithm.
+- Fixed game crashes randomly during mid-game playthrough.
+- Fixed asset when history database is being applied before triggers are postvalidated.
+- Added colour to tooltip text.
+- Fixed Tooltip for detaching Marines doesn't tell the player why they can't use it.
+- Reduced the amount of alert manager checking.
+- Added tooltip for for Metropolitan map mode when you cannot assign Metropolitan to a state
+- Fixed Colonial Nations to have the option to force other nations to become a Tributary under their Overlord.
+- Fixed Appoint Cardinal cost does not appear in country modifiers list.
+- Fixed tooltip saying that you are declaring war without CB to Burgundy when trying to force personal union, when actually there is a CB that allows it.
+- Fixed when clicking on a province it will either show the province or state views based on what it's shown previously.
+- Army Strength is displayed correctly in the War Declaration screen.
+- Now Blockade Force Required is not listed in country modifiers.
+- The list of cardinals in the Papacy doesn't overlap with itself.
+- Interface always contains all implemented informations.
+- Now all provinces can be culture converted.
+- Dhimmi modifiers are only applied to non-Muslim provinces.
+- Now Revolution can spread to provinces that it is already present in
+- Sorting armies by Manpower now works correctly.
+- Modifier is included in Military Tactics tooltip in battle overview.
+- Fixed the large garrisons overflow interface in siege view.
+- You can cycle through armies in one province if they're attached.
+- Subjects' rebels use the correct scope for their tooltip when viewed by the overlord.
+- All modifiers get displayed for all nations.
+- Appointing Cardinal Papal action has a 4-year cooldown.
+- The Player is informed that supporting rebels in rival countries grants bonus power projection.
+- Fixed issues with the commands.
+- White peace affects Hegemon status in the same way regardless if it is sent as "Demand Tribute" or "Offer Tribute".
+- Button to change all settings to allow achievements now works properly.
+- Narcissism achievement actually checks for battles won.
+- Changing map mode while in Land units tab is permanently displayed.
+- Annexed countries can't release subjects as part of a peace deal.
+- Greenland and Papua New Guinea are now islands
+- Fixed Ottoman Flavour Titles not Loading.
+- Fixed several Out of Syncs.
+- Fixed CTD in country subject view when trying to show relationship with subjects.
+- Fixed Provinces from the nation's allies cannot be taken in a peace treaty if the nation is annexed through "Concede Colonial Region" peace treaty.
+- Fixed Official Faith of the Holy Roman Empire not being the official faith once Proclaim Erbkaisertum is passed.
+- Fixed a bug that made possible to have multiple diplomats building spy network in a single country, revoking a diplomat on annexation.
+- Fixed that morale recovery modifier was not properly displayed for Mercenary Companies.
+- The pop-up for assigning a province to Trade Company now lists all the modifiers.
+- Fixed script issue for generating heathen advisors checking continent of a country rather than country capital.
+- Fixed incorrect event key referenced for inviting enemies to the dutch revolts.
+- Right-clicking on a province in development macro-builder no longer centers map on the province.
+- Fixed AE when vassalising a nation is not reduced by releasing a third nation.
+- Corrected the area and region missions only needing a single province while restricting it to colonized provinces (so one doesn't get stuck because can't colonize).
+- Corrected the New World Missions so that it needs all the provinces in a single area/region without taking in consideration non colonized provinces.
+- Fixed tooltip that shows that Expand Empire peace treaty can add provinces to the HRE without adding their owner.
+- Fixed Expand Empire treaty ignoring provinces nonadjacent to the HRE for calculating IA, AE and prestige gain.
+- Fixed a revolutionary event options.
+- Fixed incorrect AE shown in peace deal. Now peace deal UI shows the maximum of AE you will gain.
+- Fixed Italian Defence mission to allow for better forts as well.
+- Changed corrupted key in the Irish loc for Edinburg (248).
+- Changed the conditions for Brahmins privilege Supremacy Over the Crown.
+- Cossack revolt nation will not get new ideas upon tag change.
+- Fixed bug with Colonial Nations revolutionary names.
+- Fixed several multiplayer crashes.
+- Now Workshop in Production Interface is sorted by Improvement Value by default.
+- Now in Court tab tooltip for heir display heir's stats or traits.
+- Fixed popup spam when playing as daimyo.
+- Now tooltip for mercenary maintenance on recruitment interface list all modifiers.
+- Fixing consistency in Army Professionalism abilities tooltip.
+- Now giving away ally's provinces in a peace deal reduces the ally's trust.
+- Fixed Country modifiers screen listing Yearly Revolutionary Zeal regardless of Age or Revolutionary status.
+- Fixed Using Autonomous Rebels Suppression resulting in Army mission Cancelled popup
+- Fixed rebel progress being 0% if no forts have been taken.
+- Fixed Cannot change Allied Objective if you use it for your Subject and the two of you are alone in the war.
+- Fixed the number of attached troops being doubled on a map view.
+- Fixed Clicking "Previous/Next" in Ledger closes it and moves camera to random location after few times on lower GUI scales.
+- Fixed Armies in Autonomous Rebel Suppression ignoring rebels from other countries
+- Scripted advisors can now be female.
+- Fixed Player whose hotjoin request had been rejected couldn't return to main menu.
+- Fixed the AI not ever promoting cultures.
+- Fixed supporting HRE reforms only selects those that are directly required for that reform.
+- Stopped appointing a loyalist cardinal creating a truce with yourself.
+- Lifted FoW for condottieri.
+- Can use great power actions on tributary states.
+- Return of Rathore event now generates a war which you can see.
+- Native countries can no longer charter trade companies.
+- Fixed separatism timeout date calculation.
+- Now revoking Ewiger Landfriede allows wars.
+- Inability to select reforms due to cost now is correctly reported.
+- Now you rightly get Queen of Conquest if annexing an OPM.
+- Now Spread the Revolution power projection is displayed correctly in peace offer text.
+- Fixed crash in court view when using mods that don't have certain widgets.
+### References
+
+1. ↑Forum,Europa Universalis IV: 1.31 Majapahit is now LIVE - checksum [0fb9], 2021-04-27.
+1. ↑Only avaiable with‘Rights of Man’.
