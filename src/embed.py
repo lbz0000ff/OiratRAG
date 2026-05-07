@@ -84,39 +84,34 @@ class Embedder:
 def build_index(embeddings, dim: int = None) -> faiss.Index:
     """构建 FAISS 索引并保存"""
     # ── 类型与形状标准化 ──
-    # 1. PyTorch Tensor → numpy
     if hasattr(embeddings, 'numpy'):
         embeddings = embeddings.detach().cpu().numpy()
-    # 2. list → numpy array
     if isinstance(embeddings, list):
         embeddings = np.array(embeddings, dtype=np.float32)
-    # 3. 统一 float32 + 确保二维
     embeddings = np.asarray(embeddings, dtype=np.float32)
     if embeddings.ndim == 1:
         embeddings = embeddings.reshape(1, -1)
-    # 4. 确保 contiguous
     if not embeddings.flags["C_CONTIGUOUS"]:
         embeddings = np.ascontiguousarray(embeddings)
 
     dim = dim or embeddings.shape[1]
     print(f"构建 FAISS 索引 (维度: {dim}, 向量数: {embeddings.shape[0]})...")
 
-    # L2 归一化（使内积等价于余弦相似度）
-    try:
-        faiss.normalize_L2(embeddings)
-    except Exception:
-        print("  normalize_L2 失败，手动归一化...")
-        norms = np.linalg.norm(embeddings, axis=1, keepdims=True)
-        norms = np.where(norms == 0, 1, norms).astype(np.float32)
-        embeddings = np.ascontiguousarray(embeddings / norms)
+    # 直接检查类型（调试用）
+    print(f"  embeddings 类型: {type(embeddings)}, dtype: {embeddings.dtype}, shape: {embeddings.shape}")
+    print(f"  contiguous: {embeddings.flags['C_CONTIGUOUS']}")
 
-    if not embeddings.flags["C_CONTIGUOUS"]:
-        embeddings = np.ascontiguousarray(embeddings)
+    # 使用 L2 距离索引，不需要归一化
+    index = faiss.IndexFlatL2(dim)
 
-    index = faiss.IndexFlatIP(dim)
-    index.add(embeddings)
+    # 手动转换为 np.ndarray（C++ 层面的强制转换）
+    safe_embeddings = np.array(embeddings, copy=True, dtype=np.float32)
+    safe_embeddings = np.ascontiguousarray(safe_embeddings)
+    print(f"  safe_embeddings 类型: {type(safe_embeddings)}, flags: {safe_embeddings.flags}")
+
+    index.add(safe_embeddings)
     faiss.write_index(index, str(INDEX_PATH))
-    print(f"FAISS 索引已保存: {INDEX_PATH} ({index.ntotal} 个向量)")
+    print(f"✅ FAISS 索引已保存: {INDEX_PATH} ({index.ntotal} 个向量)")
     return index
 
 
