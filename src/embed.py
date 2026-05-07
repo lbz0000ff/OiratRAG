@@ -81,25 +81,35 @@ class Embedder:
         return embeddings
 
 
-def build_index(embeddings: np.ndarray) -> faiss.Index:
+def build_index(embeddings, dim: int = None) -> faiss.Index:
     """构建 FAISS 索引并保存"""
-    dim = embeddings.shape[1]
-    print(f"构建 FAISS 索引 (维度: {dim})...")
-
-    # 确保 contiguous
+    # ── 类型与形状标准化 ──
+    # 1. PyTorch Tensor → numpy
+    if hasattr(embeddings, 'numpy'):
+        embeddings = embeddings.detach().cpu().numpy()
+    # 2. list → numpy array
+    if isinstance(embeddings, list):
+        embeddings = np.array(embeddings, dtype=np.float32)
+    # 3. 统一 float32 + 确保二维
+    embeddings = np.asarray(embeddings, dtype=np.float32)
+    if embeddings.ndim == 1:
+        embeddings = embeddings.reshape(1, -1)
+    # 4. 确保 contiguous
     if not embeddings.flags["C_CONTIGUOUS"]:
         embeddings = np.ascontiguousarray(embeddings)
+
+    dim = dim or embeddings.shape[1]
+    print(f"构建 FAISS 索引 (维度: {dim}, 向量数: {embeddings.shape[0]})...")
 
     # L2 归一化（使内积等价于余弦相似度）
     try:
         faiss.normalize_L2(embeddings)
     except Exception:
-        print("faiss.normalize_L2 失败，手动 L2 归一化...")
+        print("  normalize_L2 失败，手动归一化...")
         norms = np.linalg.norm(embeddings, axis=1, keepdims=True)
         norms = np.where(norms == 0, 1, norms).astype(np.float32)
         embeddings = np.ascontiguousarray(embeddings / norms)
 
-    # 再次确保 contiguous（除法可能破坏连续性）
     if not embeddings.flags["C_CONTIGUOUS"]:
         embeddings = np.ascontiguousarray(embeddings)
 
