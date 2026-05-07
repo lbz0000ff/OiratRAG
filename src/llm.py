@@ -10,8 +10,8 @@ from openai import OpenAI
 class LLMConfig:
     provider: str = "deepseek"          # "deepseek" | "siliconflow"
     model: str = "deepseek-chat"        # deepseek-chat / Qwen/Qwen3.5-4B
-    temperature: float = 0.7
-    max_tokens: int = 512
+    temperature: float = 0.3
+    max_tokens: int = 1024
     base_urls: dict = field(default_factory=lambda: {
         "deepseek": "https://api.deepseek.com",
         "siliconflow": "https://api.siliconflow.cn/v1",
