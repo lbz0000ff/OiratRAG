@@ -74,10 +74,10 @@ class Embedder:
         """批量 embedding，返回 contiguous float32 numpy 数组"""
         print(f"Embedding {len(texts)} 个文本块...")
         all_vectors = list(self.model.embed(texts, batch_size=batch_size))
-        embeddings = np.array(all_vectors, dtype="float32")
-        # 确保是 contiguous 数组（FAISS 要求）
-        if not embeddings.flags["C_CONTIGUOUS"]:
-            embeddings = np.ascontiguousarray(embeddings)
+        # 确保是 float32 numpy 数组
+        embeddings = np.asarray(all_vectors, dtype=np.float32)
+        # 确保 contiguous（FAISS 要求）
+        embeddings = np.ascontiguousarray(embeddings)
         return embeddings
 
 
@@ -86,20 +86,27 @@ def build_index(embeddings: np.ndarray) -> faiss.Index:
     dim = embeddings.shape[1]
     print(f"构建 FAISS 索引 (维度: {dim})...")
 
-    # faiss.normalize_L2 要求 contiguous 的 ndarray
-    # 如果报错，手动 L2 归一化
+    # 确保 contiguous
+    if not embeddings.flags["C_CONTIGUOUS"]:
+        embeddings = np.ascontiguousarray(embeddings)
+
+    # L2 归一化（使内积等价于余弦相似度）
     try:
         faiss.normalize_L2(embeddings)
-    except ValueError:
+    except Exception:
         print("faiss.normalize_L2 失败，手动 L2 归一化...")
         norms = np.linalg.norm(embeddings, axis=1, keepdims=True)
-        norms = np.where(norms == 0, 1, norms)
-        embeddings = embeddings / norms
+        norms = np.where(norms == 0, 1, norms).astype(np.float32)
+        embeddings = np.ascontiguousarray(embeddings / norms)
+
+    # 再次确保 contiguous（除法可能破坏连续性）
+    if not embeddings.flags["C_CONTIGUOUS"]:
+        embeddings = np.ascontiguousarray(embeddings)
 
     index = faiss.IndexFlatIP(dim)
     index.add(embeddings)
     faiss.write_index(index, str(INDEX_PATH))
-    print(f"FAISS 索引已保存: {INDEX_PATH}")
+    print(f"FAISS 索引已保存: {INDEX_PATH} ({index.ntotal} 个向量)")
     return index
 
 
